@@ -13,14 +13,15 @@
 #define ENCRYPT 0
 #define DECRYPT 1
 
-bool message[64];
-bool key[64];
-bool cipher[64];
+//bool message[64];
+//bool key[64];
+//bool cipher[64];
 
 void set_key(bool _key[]);
 void set_message(bool _message[]);
 void get_cipher(bool _processed[]);
-void des(int mode);
+void des(const int mode);
 void print_sub_keys();
 void print_cipher();
+void clear_blocks();
 #endif

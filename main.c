@@ -147,8 +147,7 @@ int main(int argc, char **argv) {
 		fo = fopen("output.des", "w");
 		printf("[ENCRYPT]Processing...\n");
 		char message_buffer[MAX_SIZE];
-		memset(message, 0, sizeof(message));
-		memset(cipher, 0, sizeof(cipher));
+		clear_blocks();
 		memset(processed_hex, 0, sizeof(processed_hex));
 		memset(processed_bin, 0, sizeof(processed_bin));
 		memset(cipher_bin, 0, sizeof(cipher_bin));
@@ -162,9 +161,7 @@ int main(int argc, char **argv) {
 			des(mode);
 			get_cipher(processed_bin);
 			fwrite(processed_bin, sizeof(bool), MAX_SIZE * 8, fo);
-
-			memset(message, 0, sizeof(message));
-			memset(cipher, 0, sizeof(cipher));
+			clear_blocks();
 			memset(message_char, 0, sizeof(message_char));
 			memset(message_bin, 0, sizeof(message_bin));
 			memset(processed_hex, 0, sizeof(processed_hex));
@@ -187,8 +184,7 @@ int main(int argc, char **argv) {
 		}
 		fo = fopen("message.txt", "w");
 		printf("[DECRYPT]Processing...\n");
-		memset(message, 0, sizeof(message));
-		memset(cipher, 0, sizeof(cipher));
+		clear_blocks();
 		memset(processed_hex, 0, sizeof(processed_hex));
 		memset(processed_bin, 0, sizeof(processed_bin));
 		memset(cipher_bin, 0, sizeof(cipher_bin));
@@ -200,9 +196,7 @@ int main(int argc, char **argv) {
 			get_cipher(processed_bin);
 			bin_to_char(processed_bin, processed_char);
 			fwrite(processed_char, sizeof(unsigned char), MAX_SIZE, fo);
-
-			memset(message, 0, sizeof(message));
-			memset(cipher, 0, sizeof(cipher));
+			clear_blocks();
 			memset(processed_hex, 0, sizeof(processed_hex));
 			memset(processed_bin, 0, sizeof(processed_bin));
 			memset(cipher_bin, 0, sizeof(cipher_bin));

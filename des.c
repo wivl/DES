@@ -134,6 +134,7 @@ const int PC_2_TABLE[48] = {
 bool sub_key[16][48];
 
 bool left[32], right[32], expanded[48], left_backup[32];
+bool key[64], message[64], cipher[64];
 
 void set_key(bool _key[]) {
 	for (int i = 0; i < 64; i++) {
@@ -299,5 +300,9 @@ void print_cipher() {
 			puts("");
 		}
 	}
+}
 
+void clear_blocks() {
+	memset(message, 0, sizeof(message));
+	memset(cipher, 0, sizeof(cipher));
 }
